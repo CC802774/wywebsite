@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>后台管理 · 逝水兰因工作室</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="admin-page">
+
+<nav class="nav scrolled" id="nav">
+  <a href="/" class="logo">逝水兰<span>因</span></a>
+  <ul>
+    <li><a href="/">查看网站</a></li>
+    <li><a href="#" id="logoutBtn" style="color:var(--danger)">退出</a></li>
+  </ul>
+</nav>
+
+<!-- 登录页 -->
+<div id="loginView">
+  <div class="admin-login">
+    <h2>后台登录</h2>
+    <p class="sub">请输入管理员密码</p>
+    <form id="loginForm">
+      <div class="field" style="text-align:left">
+        <input type="password" id="loginPwd" placeholder="管理员密码" required autocomplete="current-password" style="text-align:center">
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%">登录</button>
+    </form>
+    <p id="loginErr" style="color:var(--danger);font-size:12px;margin-top:14px;display:none"></p>
+  </div>
+</div>
+
+<!-- 管理面板 -->
+<div id="panelView" style="display:none">
+  <div class="container">
+    <div class="admin-head">
+      <div>
+        <h2>控制台</h2>
+        <div class="sub">管理作品、排期与订单</div>
+      </div>
+      <a href="/" class="btn-ghost">查看网站 →</a>
+    </div>
+
+    <div class="tabs">
+      <button class="active" data-tab="photos">作品管理</button>
+      <button data-tab="availability">接单排期</button>
+      <button data-tab="orders">订单管理</button>
+    </div>
+
+    <!-- 作品管理 -->
+    <div class="tab-panel active" data-panel="photos">
+      <div class="upload-card" id="uploadCard">
+        <p>拖拽图片到此处，或点击下方按钮选择文件（支持 JPG / PNG / WebP，最大 15MB）</p>
+        <div class="fields">
+          <input type="text" id="upTitle" placeholder="作品标题（可选）">
+          <input type="text" id="upDesc" placeholder="简短描述（可选）">
+        </div>
+        <div class="upload-row">
+          <label class="file-btn" for="upFile">选择图片</label>
+          <input type="file" id="upFile" accept="image/*">
+        </div>
+      </div>
+      <div class="photo-list" id="photoList"></div>
+    </div>
+
+    <!-- 排期管理 -->
+    <div class="tab-panel" data-panel="availability">
+      <p style="color:var(--text-soft);margin-bottom:24px;font-size:13px;letter-spacing:0.05em">切换开关即可设置该周日是「可接单」或「休息」。如需注明原因，可在备注里写。修改即时生效。</p>
+      <div class="availability-list" id="availabilityList"></div>
+    </div>
+
+    <!-- 订单管理 -->
+    <div class="tab-panel" data-panel="orders">
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>接单日期</th>
+            <th>客户</th>
+            <th class="hide-mobile">手机</th>
+            <th class="hide-mobile">微信</th>
+            <th>状态</th>
+            <th class="hide-mobile">备注</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="ordersBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="/js/admin.js"></script>
+</body>
+</html>

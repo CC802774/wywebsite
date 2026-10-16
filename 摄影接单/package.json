@@ -1,0 +1,20 @@
+{
+  "name": "photography-booking",
+  "version": "1.0.0",
+  "description": "高端摄影作品展示 + 周日接单网站（含后台管理）",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.0",
+    "multer": "^2.4.0"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "author": "",
+  "license": "MIT"
+}

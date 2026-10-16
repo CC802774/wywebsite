@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>预约拍摄 · 逝水兰因工作室</title>
+<meta name="description" content="每周日限量接单。留下你的联系方式，我会在 24 小时内与你联系确认。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="booking-page">
+
+<nav class="nav scrolled" id="nav">
+  <a href="/" class="logo">逝水兰<span>因</span></a>
+  <ul>
+    <li><a href="/#works">作品</a></li>
+    <li><a href="/#about">关于</a></li>
+    <li><a href="/booking.html" class="active">预约</a></li>
+
+    <li><a href="/admin.html" class="admin-link">后台</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="section-eyebrow" style="margin-top:30px;text-align:left">Booking · 每周日限量</div>
+  <h1 class="section-title" style="text-align:left;margin:14px 0 8px">选择一个<em>周日</em></h1>
+  <p style="color:var(--text-soft);margin-bottom:50px;max-width:600px">每一周日只接一组拍摄，确保把完整的时间和注意力留给你。挑选下方可选日期，填写联系方式，预约即生效。</p>
+
+  <div class="booking-layout">
+    <!-- 左：周日列表 -->
+    <div class="calendar-wrap">
+      <h3>未来可预约</h3>
+      <div class="cal-sub">仅显示周日 · 已占用或休息日不可选</div>
+      <div class="sunday-list" id="sundayList">
+        <div class="loading">加载日期中</div>
+      </div>
+    </div>
+
+    <!-- 右：表单 -->
+    <div class="form-wrap">
+      <h3>联系方式</h3>
+      <div class="form-sub">为了联系你确认细节，请填写手机号和微信号</div>
+
+      <div class="selected-banner" id="selBanner">已选择 — <span id="selText"></span></div>
+
+      <form id="bookingForm">
+        <div class="field">
+          <label>称呼（可选）</label>
+          <input type="text" name="customer_name" id="customer_name" placeholder="你想我怎么称呼你？">
+        </div>
+        <div class="field">
+          <label>手机号 *</label>
+          <input type="tel" name="phone" id="phone" required placeholder="11 位手机号" autocomplete="tel">
+          <div class="hint">用于电话沟通拍摄细节</div>
+        </div>
+        <div class="field">
+          <label>微信号 *</label>
+          <input type="text" name="wechat" id="wechat" required placeholder="例如：shishuilan_photo">
+          <div class="hint">用于发送样片确认与沟通</div>
+        </div>
+        <div class="field">
+          <label>拍摄想法（可选）</label>
+          <textarea name="note" id="note" rows="4" placeholder="想拍什么主题？场景、服装、人数等"></textarea>
+        </div>
+
+        <div class="submit-row">
+          <button type="submit" class="btn btn-primary" id="submitBtn" disabled>提交预约 <span class="arrow">→</span></button>
+          <div class="note">点击提交即表示同意摄影师通过上述方式联系你。当前不需要付款。</div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- 成功模态 -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <div class="m-icon">✓</div>
+    <h3>预约成功</h3>
+    <p>感谢你的信任。我会在 24 小时内通过手机或微信联系你，确认拍摄细节。</p>
+    <a href="/" class="btn">返回首页</a>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer class="footer">
+  <div class="f-logo">逝水兰<span>因</span></div>
+  <p>© <span id="year"></span> 逝水兰因工作室</p>
+</footer>
+
+<script src="/js/booking.js"></script>
+</body>
+</html>
